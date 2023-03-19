@@ -1,0 +1,32 @@
+{
+  "name": "multi-author-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "start": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M141R/Multi-author-blog.git"
+  },
+  "keywords": [
+    "Blog",
+    "Eleventy",
+    "11ty",
+    "Multi-Author"
+  ],
+  "author": "M141R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M141R/Multi-author-blog/issues"
+  },
+  "homepage": "https://github.com/M141R/Multi-author-blog#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  },
+  "dependencies": {
+    "luxon": "^3.3.0"
+  }
+}
