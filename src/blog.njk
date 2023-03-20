@@ -1,0 +1,17 @@
+---
+title: Blog
+layout: base.njk
+---
+
+<h1>Recent Posts</h1>
+<div class="posts">
+  <ul>
+    {%- for post in collections.posts | reverse -%}
+    <li>
+      <a href="{{ post.url }}">
+        <h2>{{ post.data.title }}</h2>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>

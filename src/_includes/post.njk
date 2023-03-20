@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+
+<section class="post">
+  <p>
+    Written by <a href="/authors/{{ author }}">{{ author }}</a>
+  </p>
+  <p>Tags:</p>
+  <span class="tag-list">
+    {%- for tag in tags | filterTagList -%} {%- set tagUrl %}/tags/{{
+      tag | slug
+    }}/{% endset -%}
+    <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    {%- endfor %}
+  </span>
+  {{ content | safe }}
+</section>
