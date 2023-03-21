@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
   const updatedAuthors = existingAuthors.concat(authors);
 
   fs.writeFileSync(
-    "./_data/authors.json",
+    ".src/_data/authors.json",
     JSON.stringify(updatedAuthors, null, 2)
   );
 
