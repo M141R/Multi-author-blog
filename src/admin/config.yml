@@ -38,7 +38,7 @@ collections:
     files:
       - name: "author"
         label: "Author"
-        file: "_data/authors.json"
+        file: "src/_data/authors.json"
         format: "json"
         create: true
         slug: "{{slug}}"
