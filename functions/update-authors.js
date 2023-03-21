@@ -3,21 +3,28 @@ const fs = require("fs");
 
 exports.handler = async (event, context) => {
   const body = JSON.parse(event.body);
-  const author = body.object;
-  const authors = JSON.parse(fs.readFileSync("./_data/authors.json"));
+  const authors = body.objects;
+  const existingAuthors = JSON.parse(fs.readFileSync("./_data/authors.json"));
 
-  authors.push(author);
+  const updatedAuthors = existingAuthors.concat(authors);
 
-  fs.writeFileSync("./_data/authors.json", JSON.stringify(authors, null, 2));
+  fs.writeFileSync(
+    "./_data/authors.json",
+    JSON.stringify(updatedAuthors, null, 2)
+  );
 
-  const commitMessage = `Add new author: ${author.name}`;
+  const commitMessage = `Add new authors: ${authors
+    .map((a) => a.name)
+    .join(", ")}`;
   const commitAuthor = { name: "Netlify CMS", email: "cms@netlify.com" };
 
   const response = await axios.post(
     `https://api.github.com/repos/${process.env.REPO}/git/commits`,
     {
       message: commitMessage,
-      content: Buffer.from(JSON.stringify(authors, null, 2)).toString("base64"),
+      content: Buffer.from(JSON.stringify(updatedAuthors, null, 2)).toString(
+        "base64"
+      ),
       author: commitAuthor,
     },
     {
