@@ -1,12 +1,12 @@
 [
   {
-    "name": "Author 1",
+    "name": "Author-1",
     "bio": "THe first Author",
     "website": "https://google.com",
     "photo": "https://images.unsplash.com/photo-1678776682765-25854662bbdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
   },
   {
-    "name": "Author 2",
+    "name": "Author-2",
     "bio": "The second author",
     "website": "#",
     "photo": "https://images.unsplash.com/photo-1678727467533-832025188145?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"

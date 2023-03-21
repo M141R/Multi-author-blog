@@ -1,0 +1,12 @@
+<article class="snippet">
+  <div class="image">
+    <img src="{{ post.data.image }}" alt="Cover Image" />
+  </div>
+  <div class="info">
+    <a href="{{ post.url }}">
+      <h2>{{ post.data.title }}</h2>
+    </a>
+    <date>{{ post.data.date | postDate }}</date>
+    <p>{{ post.data.description }}</p>
+  </div>
+</article>

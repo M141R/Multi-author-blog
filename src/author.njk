@@ -1,0 +1,29 @@
+---
+layout: base.njk
+pagination:
+  data: authors
+  size: 1
+  alias: author
+permalink: /authors/{{ author.name }}/
+---
+
+<div class="author-page">
+  <div class="author-info">
+    {% if author.profile_picture %}
+    <img
+      src="{{ author.profile_picture | url }}"
+      alt="{{ author.name }}"
+      class="author-picture"
+    />
+    {% endif %}
+    <h1>{{ author.name }}</h1>
+    {% if author.bio %}
+    <div class="author-bio">{{ author.bio | safe }}</div>
+    {% endif %}
+  </div>
+  <h2>Posts by {{ author.name }}</h2>
+  <div class="author-posts">
+    {% set posts = collections.authorPosts(author.slug) %} {% for post in posts
+    %} {% include 'postsnippet.njk' %} {% endfor %}
+  </div>
+</div>

@@ -3,4 +3,14 @@ layout: base.njk
 title: Multi-Author-Blog
 ---
 
-<h1>Hello World</h1>
+<h1>The BLOG</h1>
+<section class="hero">
+  <div class="latest-hero">
+    {% set postslist = collections.posts | head(-2) %} {% set postslistCounter =
+    collections.posts | length %} {% include "recent.njk" %}
+  </div>
+  <div class="featured-hero">
+    {%- for post in collections.featured | reverse -%} {% include
+    'postsnippet.njk' %} {%- endfor -%}
+  </div>
+</section>

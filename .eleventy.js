@@ -47,6 +47,26 @@ module.exports = function (eleventyConfig) {
     return filterTagList([...tagSet]);
   });
 
+  eleventyConfig.addCollection("authorPosts", function (collectionApi) {
+    const posts = collectionApi.getFilteredByTag("posts");
+
+    // Group posts by author
+    const postsByAuthor = {};
+    posts.forEach((post) => {
+      const authorSlug = post.data.author.slug;
+      if (postsByAuthor[authorSlug]) {
+        postsByAuthor[authorSlug].push(post);
+      } else {
+        postsByAuthor[authorSlug] = [post];
+      }
+    });
+
+    // Return posts for the current author
+    return (authorSlug) => {
+      return postsByAuthor[authorSlug] || [];
+    };
+  });
+
   return {
     markdownTemplateEngine: "md",
 
